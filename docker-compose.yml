@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  ctf:
+    build: .
+    image: ctf:0.1
+    command: /bin/zsh
+    hostname: "ctf"
+    volumes:
+      - ./wordlists:/home/qihao/wordlists
+      - ./ctf:/home/qihao/ctf
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
